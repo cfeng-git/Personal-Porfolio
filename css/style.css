@@ -1,0 +1,269 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --paper: rgb(245, 239, 229);
+    --worddark: rgb(55, 36, 4);
+    --box: rgb(216, 198, 165);
+    --line: rgb(160, 136, 96);
+}
+
+
+html {
+    background-color: var(--paper);
+}
+
+
+
+.container{
+    min-width: 900px;
+    min-height: 800px;
+    display: grid;
+    grid-template-columns: 1fr 200px 300px 200px 1fr;
+    grid-template-rows: 100px 40px 1fr auto;
+    grid-template-areas: 
+        ". header header header ."
+        ". nav nav nav ."
+        ". fig intro intro ."
+        ". foot foot foot  .";
+    gap: 10px 15px;
+    justify-content: center;
+}
+
+header.name {
+
+    grid-area: header;
+    justify-self: center;
+    align-self: end;
+    /* background-color: darkgreen; */
+
+}
+
+header.name h1{
+    font-family: 'Spectral SC', 'Georgia', serif;
+    font-size: 30px;
+    text-align: center;
+    color: var(--worddark);
+}
+
+
+#navbar {
+    grid-area: nav;
+    align-self: end;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: end;
+    /* background-color: cyan; */
+}
+
+#navbar a{
+    color: var(--worddark);
+    text-decoration: none;
+    list-style-type: none;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-family: "Open Sans Condensed", sans-serif;
+}
+
+#navbar a:hover {
+    color: var(--line);
+}
+
+
+
+figure {
+    grid-area: fig;
+    justify-self: right;
+    align-self: center;
+    margin: 100px auto;
+}
+
+figure img {
+    border-radius: 50%;
+    width: 80%;
+}
+
+
+.intro {
+    grid-area: intro;
+    justify-self: right;
+    align-self: center;
+}
+
+.intro p {
+    font-family: 'Nunito', sans-serif;
+    padding: 5px 2px;
+}
+
+
+footer {
+    grid-area: foot;
+    justify-self: center;
+}
+
+footer .socialwrapper ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+footer .socialwrapper ul li {
+    list-style-type: none;
+}
+
+footer .socialwrapper ul li .fab {
+    color: var(--worddark);
+}
+
+footer .socialwrapper ul li .fab:hover {
+    color: var(--line);
+}
+
+footer p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 10px;
+    margin: 20px 20px;
+}
+
+
+/*
+    wechat pop up 
+*/
+.wechat {
+    grid-column: 3/4;
+    grid-row: 3/4;
+    align-self: center;
+    justify-self: center;
+}
+
+.wechat img{
+    width: 300px;
+    /* display: none; */
+}
+
+
+/*
+Styles for education.html
+*/
+
+
+.timeline {
+    grid-column: 2/span 3;
+    grid-row: 3/4;
+
+    position: relative;
+    margin: 100px auto;
+    width: 90%;
+    
+}
+
+.timeline ul li {
+    margin-bottom: 50px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.point {
+    min-width: 8px;
+    height: 8px;
+    background-color: var(--paper);
+    border-radius: 100%;
+    z-index: 2;
+    border: 1.5px var(--line) solid;
+    position: relative;
+    left: 1px;
+}
+
+.timeline ul li .content {
+    width: 50%;
+    padding: 0 20px;
+}
+
+.timeline ul li:nth-child(odd) .content {
+    padding-left: 0;
+}
+
+.timeline ul li:nth-child(odd) .date {
+    padding-right: 0;
+}
+
+.timeline ul li:nth-child(even) .content {
+    padding-right: 0;
+}
+
+.timeline ul li:nth-child(even) .date {
+    padding-left: 0;
+}
+
+.timeline ul li .date {
+    width: 50%;
+    padding: 0 20px;
+    font-weight: normal;
+}
+
+.timeline ul li .content .schoolwrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.timeline ul li .content .schoolimg {
+    width: 50px;
+}
+
+
+
+.timeline ul li .date h4 {
+    background-color: var(--box);
+    color: var(--worddark);
+    width: 200px;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.timeline ul li .content h3 {
+    padding: 10px 20px;
+    /* background-color: var(--box); */
+    color: var(--worddark);
+    margin-bottom: 0;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.timeline ul li .content p {
+    padding: 10px 20px;
+    color: var(--worddark);
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-style: italic;
+    margin-top: 0;
+    text-align: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.timeline ul li:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.timeline ul li:nth-child(even) .date h4 {
+    float: right
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 1.5px;
+    left: 50%;
+    background-color: var(--line);
+}
